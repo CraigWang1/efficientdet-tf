@@ -42,8 +42,7 @@ def evaluate(**kwargs):
               required=True, help='Dataset to use for training')
 @click.option('--test-dataset', type=click.Path(file_okay=False, exists=True),
               required=True, help='Path to annotations and images')
-@click.option('--images-path', type=click.Path(file_okay=False, exists=True),
-              required=True, default='',
+@click.option('--images-path', type=click.Path(file_okay=False, exists=True),  #####I MADE THIS NOT REQUIRED
               help='Base path to images. '
                    'Required when using labelme format')
 @click.option('--n-classes', type=int, required=True,
