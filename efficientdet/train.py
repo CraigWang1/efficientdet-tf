@@ -9,7 +9,7 @@ import efficientdet
 import efficientdet.utils as utils
 import efficientdet.engine as engine
 
-huber_loss_fn = tf.losses.Huber(python setup.py build_ext --inplace
+huber_loss_fn = tf.losses.Huber(
     reduction=tf.losses.Reduction.SUM)
 
 
