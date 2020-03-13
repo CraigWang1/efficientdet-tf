@@ -17,32 +17,35 @@ import efficientdet.utils.io as io_utils
 import efficientdet.utils.bndbox as bb_utils
 from .preprocess import normalize_image
 
-
+### I CHANGED THIS FOR THE BIN DATASET
 IDX_2_LABEL = [
-    'person',
-    # Animals
-    'dog',
-    'bird',
-    'cat',
-    'cow',
-    'horse',
-    'sheep',
-    # Vehicle
-    'aeroplane',
-    'bicycle',
-    'boat',
-    'bus',
-    'car',
-    'motorbike',
-    'train',
-    # Indoor
-    'bottle',
-    'chair',
-    'diningtable',
-    'pottedplant',
-    'sofa',
-    'tvmonitor',
+    'bin'
 ]
+# IDX_2_LABEL = [
+#     'person',
+#     # Animals
+#     'dog',
+#     'bird',
+#     'cat',
+#     'cow',
+#     'horse',
+#     'sheep',
+#     # Vehicle
+#     'aeroplane',
+#     'bicycle',
+#     'boat',
+#     'bus',
+#     'car',
+#     'motorbike',
+#     'train',
+#     # Indoor
+#     'bottle',
+#     'chair',
+#     'diningtable',
+#     'pottedplant',
+#     'sofa',
+#     'tvmonitor',
+# ]
 
 LABEL_2_IDX = {l: i for i, l in enumerate(IDX_2_LABEL)}
 
@@ -143,7 +146,7 @@ def build_dataset(dataset_path: Union[str, Path],
     scale_boxes = partial(_scale_boxes, to_size=im_input_size)
 
     # We assume that tf datasets list files sorted when shuffle=False
-    im_ds = (tf.data.Dataset.list_files(str(im_path / '*.jpg'), 
+    im_ds = (tf.data.Dataset.list_files(str(im_path / '*.png'),           #######I CHANGED TO PNG 
                                         shuffle=False)
              .map(load_im).map(normalize_image))
     annot_ds = (tf.data.Dataset
