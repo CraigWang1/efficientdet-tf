@@ -9,7 +9,8 @@ import efficientdet
 import efficientdet.utils as utils
 import efficientdet.engine as engine
 
-huber_loss_fn = tf.losses.Huber(
+huber_loss_fn = tf.losses.Huber(python setup.py build_ext --inplace
+$ python setup.py install
     reduction=tf.losses.Reduction.SUM)
 
 
@@ -148,7 +149,7 @@ def train(**kwargs):
               required=True, help='Dataset to use for training')
 @click.option('--train-dataset', type=click.Path(file_okay=False, exists=True),
               required=True, help='Path to annotations and images')
-@click.option('--val-dataset', default='', 
+@click.option('--val-dataset', ############################I GOT RID OF DEFAULT 
               type=click.Path(file_okay=False, exists=True),
               help='Path to validation annotations. If it is '
                    ' not set by the user, validation won\'t be performed')
